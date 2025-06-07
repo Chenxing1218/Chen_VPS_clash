@@ -23,5 +23,5 @@ rules:
   - DOMAIN-SUFFIX,googlevideo.com,Proxy
   - DOMAIN-SUFFIX,github.com,Proxy
   - GEOIP,CN,DIRECT
-  - MATCH,Proxy
+  - MATCH,DIRECT
 

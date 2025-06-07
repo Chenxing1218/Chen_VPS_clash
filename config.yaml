@@ -1,0 +1,27 @@
+
+proxies:
+  - name: "Singapore-SS2022"
+    type: ss
+    server:  192.124.176.237
+    port: 443
+    cipher: 2022-blake3-aes-128-gcm
+    password: b05P11PXT+BLOV+1dcY9XQ==
+    udp: true
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - Singapore-SS2022
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,openai.com,Proxy
+  - DOMAIN-SUFFIX,chat.openai.com,Proxy
+  - DOMAIN-SUFFIX,telegram.org,Proxy
+  - DOMAIN-SUFFIX,youtube.com,Proxy
+  - DOMAIN-SUFFIX,googlevideo.com,Proxy
+  - DOMAIN-SUFFIX,github.com,Proxy
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
+

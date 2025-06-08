@@ -8,8 +8,10 @@ dns:
   enable: true
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
   nameserver:
+    - 114.114.114.114
+    - 223.5.5.5
+  fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
 
@@ -41,7 +43,7 @@ rules:
   - DOMAIN-SUFFIX,facebook.com,Proxy
   - DOMAIN-SUFFIX,googleapis.com,Proxy
   - DOMAIN-SUFFIX,gstatic.com,Proxy
-  - GEOIP,CN,DIRECT
+
   - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
   - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
   - 'DOMAIN-SUFFIX,icloud.com,DIRECT'
@@ -183,4 +185,5 @@ rules:
   - 'DOMAIN-SUFFIX,zhimg.com,DIRECT'
   - 'DOMAIN-SUFFIX,zimuzu.tv,DIRECT'
   - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
+  - GEOIP,CN,DIRECT
   - MATCH,Proxy

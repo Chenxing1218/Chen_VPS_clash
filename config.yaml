@@ -33,9 +33,14 @@ proxy-groups:
     interval: 300
 
 rules:
+  # OpenAI
   - DOMAIN-SUFFIX,openai.com,Proxy
   - DOMAIN-SUFFIX,chat.openai.com,Proxy
+
+  # Telegram
   - DOMAIN-SUFFIX,telegram.org,Proxy
+  - DOMAIN-SUFFIX,t.me,Proxy
+  
   - DOMAIN-SUFFIX,youtube.com,Proxy
   - DOMAIN-SUFFIX,googlevideo.com,Proxy
   - DOMAIN-SUFFIX,github.com,Proxy
@@ -43,7 +48,15 @@ rules:
   - DOMAIN-SUFFIX,facebook.com,Proxy
   - DOMAIN-SUFFIX,googleapis.com,Proxy
   - DOMAIN-SUFFIX,gstatic.com,Proxy
-
+  # Steam
+  - DOMAIN-SUFFIX,steampowered.com,Proxy
+  - DOMAIN-SUFFIX,steamcommunity.com,Proxy
+  - DOMAIN-SUFFIX,steam-chat.com,Proxy
+  - DOMAIN-SUFFIX,steamgames.com,Proxy
+  - DOMAIN-SUFFIX,steamusercontent.com,Proxy
+  - DOMAIN-KEYWORD,steam,Proxy
+  - PROCESS-NAME,Steam.exe,Proxy
+  
   - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
   - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
   - 'DOMAIN-SUFFIX,icloud.com,DIRECT'

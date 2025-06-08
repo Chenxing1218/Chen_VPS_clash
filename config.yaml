@@ -13,7 +13,7 @@ proxy-groups:
     type: select
     proxies:
       - Singapore-SS2022
-
+      - DIRECT
 rules:
   - DOMAIN-SUFFIX,openai.com,Proxy
   - DOMAIN-SUFFIX,chat.openai.com,Proxy

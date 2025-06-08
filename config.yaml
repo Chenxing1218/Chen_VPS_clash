@@ -200,6 +200,6 @@ rules:
   - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
   - 'DOMAIN-SUFFIX,youtube.iiilab.com,DIRECT'
   - 'DOMAIN-SUFFIX,passport.zhihuishu.com,DIRECT'
-    - 'DOMAIN-SUFFIX,onlineweb.zhihuishu.com,DIRECT'
+  - 'DOMAIN-SUFFIX,onlineweb.zhihuishu.com,DIRECT'
   - GEOIP,CN,DIRECT
   - MATCH,Proxy

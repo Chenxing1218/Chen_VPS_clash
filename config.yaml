@@ -1,8 +1,22 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: error
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
 
 proxies:
   - name: "Singapore-SS2022"
     type: ss
-    server:  192.124.176.237
+    server: 192.124.176.237
     port: 443
     cipher: chacha20-ietf-poly1305
     password: b05P11PXT+BLOV+1dcY9XQ==
@@ -10,10 +24,12 @@ proxies:
 
 proxy-groups:
   - name: "Proxy"
-    type: select
+    type: url-test
     proxies:
       - Singapore-SS2022
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+
 rules:
   - DOMAIN-SUFFIX,openai.com,Proxy
   - DOMAIN-SUFFIX,chat.openai.com,Proxy
@@ -21,6 +37,9 @@ rules:
   - DOMAIN-SUFFIX,youtube.com,Proxy
   - DOMAIN-SUFFIX,googlevideo.com,Proxy
   - DOMAIN-SUFFIX,github.com,Proxy
+  - DOMAIN-SUFFIX,twitter.com,Proxy
+  - DOMAIN-SUFFIX,facebook.com,Proxy
+  - DOMAIN-SUFFIX,googleapis.com,Proxy
+  - DOMAIN-SUFFIX,gstatic.com,Proxy
   - GEOIP,CN,DIRECT
   - MATCH,Proxy
-

@@ -4,7 +4,7 @@ proxies:
     type: ss
     server:  192.124.176.237
     port: 443
-    cipher: 2022-blake3-aes-128-gcm
+    cipher: chacha20-ietf-poly1305
     password: b05P11PXT+BLOV+1dcY9XQ==
     udp: true
 

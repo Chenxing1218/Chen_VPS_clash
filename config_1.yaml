@@ -1,8 +1,11 @@
 port: 7890
 socks-port: 7891
 allow-lan: true
-mode: Rule
-log-level: error
+bind-address: '*'
+mode: rule
+log-level: warning
+
+external-controller: 127.0.0.1:9090
 
 dns:
   enable: true
@@ -14,9 +17,13 @@ dns:
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
 
 proxies:
-  - name: "Singapore-SS2022"
+  - name: "高速节点"
     type: ss
     server: 192.3.86.122
     port: 15120
@@ -28,7 +35,7 @@ proxy-groups:
   - name: "Proxy"
     type: url-test
     proxies:
-      - Singapore-SS2022
+      - 高速节点
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
@@ -51,6 +58,7 @@ rules:
   - DOMAIN-SUFFIX,steamusercontent.com,Proxy
   - DOMAIN-KEYWORD,steam,Proxy
   - PROCESS-NAME,Steam.exe,Proxy
+
   - DOMAIN-SUFFIX,mzstatic.com,DIRECT
   - DOMAIN-SUFFIX,itunes.apple.com,DIRECT
   - DOMAIN-SUFFIX,icloud.com,DIRECT
@@ -192,9 +200,9 @@ rules:
   - DOMAIN-SUFFIX,zhimg.com,DIRECT
   - DOMAIN-SUFFIX,zimuzu.tv,DIRECT
   - DOMAIN-SUFFIX,zoho.com,DIRECT
-  - DOMAIN-SUFFIX,zoho.com,DIRECT
-  - DOMAIN-SUFFIX,my.justhost.ru,DIRECT 
-  - DOMAIN-SUFFIX,paypal.com,DIRECT 
-  - DOMAIN-SUFFIX,my.racknerd.com,DIRECT 
+  - DOMAIN-SUFFIX,my.justhost.ru,DIRECT
+  - DOMAIN-SUFFIX,paypal.com,DIRECT
+  - DOMAIN-SUFFIX,my.racknerd.com,DIRECT
+
   - GEOIP,CN,DIRECT
   - MATCH,Proxy
